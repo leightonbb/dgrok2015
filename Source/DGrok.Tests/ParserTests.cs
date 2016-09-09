@@ -50,15 +50,15 @@ namespace DGrok.Tests
             Assert.That(left.OperatorNode.ParentNode, Is.SameAs(left), "Left.Operator");
             Assert.That(left.RightNode.ParentNode, Is.SameAs(left), "Left.Right");
         }
-        [Test, Microsoft.VisualStudio.TestTools.UnitTesting.ExpectedException(typeof(IndexOutOfRangeException))]
+        [Test]
         public void CanParseRuleThrowsOnUnrecognizedRule()
         {
-            _parser.CanParseRule((RuleType) 999);
+            Assert.Throws<IndexOutOfRangeException>(() => _parser.CanParseRule((RuleType) 999));
         }
-        [Test, Microsoft.VisualStudio.TestTools.UnitTesting.ExpectedException(typeof(IndexOutOfRangeException))]
+        [Test]
         public void ParseRuleThrowsOnUnrecognizedRule()
         {
-            _parser.ParseRule((RuleType) 999);
+            Assert.Throws<IndexOutOfRangeException>(() => _parser.ParseRule((RuleType) 999));
         }
     }
 }

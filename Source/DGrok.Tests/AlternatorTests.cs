@@ -36,10 +36,10 @@ namespace DGrok.Tests
             _alternator = new Parser.Alternator();
         }
 
-        [Test, Microsoft.VisualStudio.TestTools.UnitTesting.ExpectedException(typeof(InvalidOperationException))]
+        [Test]
         public void DisplayTextWithNoAlternates()
         {
-            _alternator.DisplayText();
+            Assert.Throws<InvalidOperationException>(() => _alternator.DisplayText());
         }
         [Test]
         public void DisplayTextWithOneAlternate()

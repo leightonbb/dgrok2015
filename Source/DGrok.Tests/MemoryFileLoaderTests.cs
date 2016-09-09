@@ -29,11 +29,11 @@ namespace DGrok.Tests
     [TestFixture]
     public class MemoryFileLoaderTests
     {
-        [Test, Microsoft.VisualStudio.TestTools.UnitTesting.ExpectedException(typeof(IOException))]
+        [Test]
         public void IOExceptionOnMissingFile()
         {
             IFileLoader loader = new MemoryFileLoader();
-            loader.Load("Foo.pas");
+            Assert.Throws<IOException>(() => loader.Load("Foo.pas"));
         }
     }
 }

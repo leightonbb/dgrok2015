@@ -70,10 +70,10 @@ namespace DGrok.Tests
             _codeBase.AddFileExpectingSuccess("Foo.pas", "unit Foo; interface implementation end.");
             Assert.That(_codeBase.ParsedFileCount, Is.EqualTo(1));
         }
-        [Test, Microsoft.VisualStudio.TestTools.UnitTesting.ExpectedException(typeof(ParseException))]
+        [Test]
         public void AddFileExpectingSuccessWithError()
         {
-            _codeBase.AddFileExpectingSuccess("Foo.pas", "");
+            Assert.Throws<ParseException>(() => _codeBase.AddFileExpectingSuccess("Foo.pas", ""));
         }
         [Test]
         public void AddParsedFile()

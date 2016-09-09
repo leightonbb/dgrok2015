@@ -298,12 +298,12 @@ namespace DGrok.Tests
             Assert.That("{$IF False}{$UNDEF FOO}{$IFEND} {$IFDEF FOO}Foo{$ENDIF}", LexesAndFiltersAs(
                 "Identifier |Foo|"));
         }
-        [Test, Microsoft.VisualStudio.TestTools.UnitTesting.ExpectedException(typeof(LexException))]
+        [Test]
         public void ThrowOnUnrecognizedDirective()
         {
             Lexer lexer = new Lexer("{$FOO}", "");
             TokenFilter filter = new TokenFilter(lexer.Tokens, _defines, _fileLoader);
-            new List<Token>(filter.Tokens);
+            Assert.Throws<LexException>(() => new List<Token>(filter.Tokens));
         }
         [Test]
         public void UnrecognizedIsIgnoredInFalseIf()

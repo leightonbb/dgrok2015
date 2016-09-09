@@ -51,10 +51,10 @@ namespace DGrok.Tests
         {
             Assert.That(DefineIsTrue("IFNDEF FOO"), Is.True);
         }
-        [Test, Microsoft.VisualStudio.TestTools.UnitTesting.ExpectedException(typeof(PreprocessorException))]
+        [Test]
         public void ErrorIfUndefinedIf()
         {
-            DefineIsTrue("IF Foo");
+            Assert.Throws< PreprocessorException>(() => DefineIsTrue("IF Foo"));
         }
         [Test]
         public void DefineDirectiveAsTrue()
