@@ -22,7 +22,6 @@ using System.Collections.Generic;
 using System.Text;
 using DGrok.Framework;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 
 namespace DGrok.Tests
 {
@@ -37,7 +36,7 @@ namespace DGrok.Tests
             _alternator = new Parser.Alternator();
         }
 
-        [Test, ExpectedException(typeof(InvalidOperationException))]
+        [Test, Microsoft.VisualStudio.TestTools.UnitTesting.ExpectedException(typeof(InvalidOperationException))]
         public void DisplayTextWithNoAlternates()
         {
             _alternator.DisplayText();

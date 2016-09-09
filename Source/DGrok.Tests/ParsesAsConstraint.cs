@@ -35,14 +35,24 @@ namespace DGrok.Tests
             _ruleType = ruleType;
         }
 
-        public override bool Matches(object actual)
+        public override ConstraintResult ApplyTo<TActual>(TActual actual)
         {
-            string source = (string) actual;
+            string source = actual.ToString();
             Parser parser = ParserTestCase.CreateParser(source);
             string actualString = parser.ParseRule(_ruleType).Inspect();
             if (!parser.AtEof)
                 throw new InvalidOperationException("Rule did not consume all input");
-            return base.Matches(actualString);
+            return base.ApplyTo(actualString);
         }
+
+        //public override bool Matches(object actual)
+        //{
+        //    string source = (string) actual;
+        //    Parser parser = ParserTestCase.CreateParser(source);
+        //    string actualString = parser.ParseRule(_ruleType).Inspect();
+        //    if (!parser.AtEof)
+        //        throw new InvalidOperationException("Rule did not consume all input");
+        //    return base.Matches(actualString);
+        //}
     }
 }

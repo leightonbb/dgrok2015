@@ -29,7 +29,7 @@ namespace DGrok.Tests
     [TestFixture]
     public class MemoryFileLoaderTests
     {
-        [Test, ExpectedException(typeof(IOException))]
+        [Test, Microsoft.VisualStudio.TestTools.UnitTesting.ExpectedException(typeof(IOException))]
         public void IOExceptionOnMissingFile()
         {
             IFileLoader loader = new MemoryFileLoader();

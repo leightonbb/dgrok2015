@@ -23,7 +23,6 @@ using System.Text;
 using DGrok.Framework;
 using NUnit.Framework;
 using NUnit.Framework.Constraints;
-using NUnit.Framework.SyntaxHelpers;
 
 namespace DGrok.Tests
 {
@@ -299,7 +298,7 @@ namespace DGrok.Tests
             Assert.That("{$IF False}{$UNDEF FOO}{$IFEND} {$IFDEF FOO}Foo{$ENDIF}", LexesAndFiltersAs(
                 "Identifier |Foo|"));
         }
-        [Test, ExpectedException(typeof(LexException))]
+        [Test, Microsoft.VisualStudio.TestTools.UnitTesting.ExpectedException(typeof(LexException))]
         public void ThrowOnUnrecognizedDirective()
         {
             Lexer lexer = new Lexer("{$FOO}", "");

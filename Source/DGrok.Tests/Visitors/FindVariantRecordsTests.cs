@@ -23,7 +23,6 @@ using System.Text;
 using DGrok.Framework;
 using DGrok.Visitors;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 
 namespace DGrok.Tests.Visitors
 {

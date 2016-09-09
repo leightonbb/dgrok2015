@@ -23,7 +23,6 @@ using System.Text;
 using DGrok.DelphiNodes;
 using DGrok.Framework;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 
 namespace DGrok.Tests
 {
@@ -51,12 +50,12 @@ namespace DGrok.Tests
             Assert.That(left.OperatorNode.ParentNode, Is.SameAs(left), "Left.Operator");
             Assert.That(left.RightNode.ParentNode, Is.SameAs(left), "Left.Right");
         }
-        [Test, ExpectedException(typeof(IndexOutOfRangeException))]
+        [Test, Microsoft.VisualStudio.TestTools.UnitTesting.ExpectedException(typeof(IndexOutOfRangeException))]
         public void CanParseRuleThrowsOnUnrecognizedRule()
         {
             _parser.CanParseRule((RuleType) 999);
         }
-        [Test, ExpectedException(typeof(IndexOutOfRangeException))]
+        [Test, Microsoft.VisualStudio.TestTools.UnitTesting.ExpectedException(typeof(IndexOutOfRangeException))]
         public void ParseRuleThrowsOnUnrecognizedRule()
         {
             _parser.ParseRule((RuleType) 999);

@@ -22,7 +22,6 @@ using System.Collections.Generic;
 using System.Text;
 using DGrok.Framework;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 
 namespace DGrok.Tests
 {
@@ -52,7 +51,7 @@ namespace DGrok.Tests
         {
             Assert.That(DefineIsTrue("IFNDEF FOO"), Is.True);
         }
-        [Test, ExpectedException(typeof(PreprocessorException))]
+        [Test, Microsoft.VisualStudio.TestTools.UnitTesting.ExpectedException(typeof(PreprocessorException))]
         public void ErrorIfUndefinedIf()
         {
             DefineIsTrue("IF Foo");

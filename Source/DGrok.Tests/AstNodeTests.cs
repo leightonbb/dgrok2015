@@ -23,7 +23,6 @@ using System.Text;
 using DGrok.DelphiNodes;
 using DGrok.Framework;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 
 namespace DGrok.Tests
 {
